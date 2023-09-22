@@ -29,25 +29,28 @@ export default class BusinessCardParent extends Component {
 
 
     render(){
-        if (this.state.editMode){
-            return(
-                <BusinessCardForm  name={this.state.name} email={this.state.email} />
-            )
+		if (this.state.editMode){
+			// if edit is true, show the form 
+			return(
+				<BusinessCardForm  
+				name={this.state.name} 
+				email={this.state.email} 
+				setParentState={this.updateState}
+				/>
+			)
 
-        } else {
-            return(
-                <div>
-                    <BusinessCardDisplay email={this.state.email}
-                    name={this.state.name}
-                    setParentState={this.updateState}
-                    
-                    />
-
-                    
-                </div>
-            )
-        }
-    }
+		} else {
+			return(
+				<div>
+					<BusinessCardDisplay
+					email={this.state.email}
+					name={this.state.name}
+					 
+					 />
+				</div>
+			)
+		}
+	}
 }
 
 
